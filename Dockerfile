@@ -12,4 +12,4 @@ ENV NOTIFIER_ENABLEADMIN=false
 
 WORKDIR /home
 COPY --from=builder /go/bin/notifier /usr/local/bin/notifier
-ENTRYPOINT ["app"]
+ENTRYPOINT ["notifier"]
