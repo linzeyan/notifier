@@ -5,8 +5,9 @@ import (
 )
 
 type Bot struct {
-	tg      *tgbotapi.BotAPI
-	chatIDs []int64
+	tg        *tgbotapi.BotAPI
+	chatIDs   []int64
+	parseMode string
 }
 
 type OptionFunc func(*Bot) error
@@ -42,11 +43,17 @@ func (b *Bot) GetUpdates(timeout int) (tgbotapi.UpdatesChannel, error) {
 
 func (b *Bot) SendMessage(text string) {
 	for _, id := range b.chatIDs {
-		go b.sendTxtMessage(id, text)
+		go b.sendParseMessage(id, text)
 	}
 }
 
 func (b *Bot) sendTxtMessage(chatID int64, text string) {
 	messager := tgbotapi.NewMessage(chatID, text)
+	b.tg.Send(messager)
+}
+
+func (b *Bot) sendParseMessage(chatID int64, text string) {
+	messager := tgbotapi.NewMessage(chatID, text)
+	messager.ParseMode = b.parseMode
 	b.tg.Send(messager)
 }

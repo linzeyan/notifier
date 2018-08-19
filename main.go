@@ -20,6 +20,7 @@ type Specification struct {
 	Debug       bool
 	Port        int
 	BotToken    string
+	ParseMode   string
 	EnableAdmin bool
 	Admins      []string
 	Groups      []string
@@ -51,7 +52,7 @@ func main() {
 		ids = append(ids, adminIds...)
 	}
 	withIDs := bot.WithChatIDs(ids...)
-	tb, err := bot.NewTelegramBot(s.BotToken, bot.DebugMode(s.Debug), withIDs)
+	tb, err := bot.NewTelegramBot(s.BotToken, bot.DebugMode(s.Debug), withIDs, bot.ParseMode(s.ParseMode))
 	if err != nil {
 		log.Fatalf("Failed to create telegram bot: %v", err)
 	}
@@ -87,7 +88,9 @@ func sendMessage(tb *bot.Bot) echo.HandlerFunc {
 		if err := c.Bind(m); err != nil {
 			return err
 		}
+
 		tb.SendMessage(m.Message)
+
 		return c.JSON(http.StatusOK, echo.Map{
 			"status": true,
 			"code":   0,

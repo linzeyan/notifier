@@ -19,11 +19,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:689690d2651cc8764721c16785fe62e028e2a370ad5b8ea3006723f107df0780"
+  digest = "1:1254801b0d8586992944c782a77b59ade0e076b302a2ba6d3840492ca30f2cd9"
   name = "github.com/gotoolkit/bot"
   packages = ["."]
   pruneopts = "UT"
-  revision = "1ced41bc633b00e74dc3ac8b30d9dbfaa929d561"
+  revision = "86935a21740cb9023fd69946ab7d51cc4e035f57"
 
 [[projects]]
   digest = "1:edbef42561faa44c19129b68d1e109fbc1647f63239250391eadc8d0e7c9f669"

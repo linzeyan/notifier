@@ -1,6 +1,6 @@
 # Telegram bot notifier
 
-# Quick Start 
+# Quick Start
 
 1. Edit `docker-compose.yml`
 
@@ -17,6 +17,8 @@ services:
             - NOTIFIER_PORT=8080
             # telegram bot token
             - NOTIFIER_BOTTOKEN=<telegram bot token>
+            # telegram send message parse mode
+            - NOTIFIER_PARSEMODE=<Markdown (default) / HTML / >
             # enable send message to admin
             - NOTIFIER_ENABLEADMIN=true
             # admin ids(split with ,)
@@ -27,10 +29,11 @@ services:
             - TZ=Asia/Macau
         ports:
             - 20001:8080
-
 ```
+
 2. Run `docker-compose up -d`
-3. Test 
+3. Test
+
 ```
 curl -X "POST" "http://localhost:20001/send" \
      -H 'Content-Type: application/json; charset=utf-8' \

@@ -10,6 +10,8 @@ services:
             - NOTIFIER_PORT=8080
             # telegram bot token
             - NOTIFIER_BOTTOKEN=<telegram bot token>
+            # telegram send message parse mode
+            - NOTIFIER_PARSEMODE=<Markdown (default) / HTML / >
             # enable send message to admin
             - NOTIFIER_ENABLEADMIN=true
             # admin ids(split with ,)
