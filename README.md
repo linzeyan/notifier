@@ -8,7 +8,7 @@
 version: "3"
 
 services:
-    notifer:
+    notifier:
         image: containerize/notifier
         environment:
             # debug mode
