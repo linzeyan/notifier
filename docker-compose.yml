@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+    dev:
+        image: containerize/notifier
+        environment:
+            # debug mode
+            - NOTIFIER_DEBUG=false
+            # server port
+            - NOTIFIER_PORT=8080
+            # telegram bot token
+            - NOTIFIER_BOTTOKEN=<telegram bot token>
+            # enable send message to admin
+            - NOTIFIER_ENABLEADMIN=true
+            # admin ids(split with ,)
+            - NOTIFIER_ADMINS=<telegram user 1 id,telegram user 2 id>
+            # group ids(split with ,)
+            - NOTIFIER_GROUPS=<telegram group 1 id,telegram group 2 id>
+            # timezone
+            - TZ=Asia/Macau
+        ports:
+            - 20001:8080
