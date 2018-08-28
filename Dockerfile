@@ -1,7 +1,4 @@
-FROM containerize/dep AS builder
-WORKDIR /go/src/github.com/gotoolkit/notifier
-COPY . .
-RUN go install .
+FROM containerize/mod AS builder
 
 FROM alpine:3.8
 RUN apk add --no-cache ca-certificates tzdata
