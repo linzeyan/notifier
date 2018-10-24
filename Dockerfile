@@ -1,4 +1,4 @@
-FROM containerize/mod AS builder
+FROM zeyanlin/mod AS builder
 
 FROM alpine:3.8
 RUN apk add --no-cache ca-certificates tzdata
