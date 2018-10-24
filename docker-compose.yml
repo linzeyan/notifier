@@ -2,7 +2,7 @@ version: "3"
 
 services:
     notifier:
-        image: containerize/notifier
+        image: zeyanlin/notifier
         environment:
             # debug mode
             - NOTIFIER_DEBUG=false
@@ -19,6 +19,6 @@ services:
             # group ids(split with ,)
             - NOTIFIER_GROUPS=<telegram group 1 id,telegram group 2 id>
             # timezone
-            - TZ=Asia/Macau
+            - TZ=Asia/Taipei
         ports:
             - 20001:8080
